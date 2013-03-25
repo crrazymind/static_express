@@ -1,0 +1,10 @@
+block javascripts
+ script(src='/javascripts/sendmail.js')
+
+section(class="main-content")
+    form(action="/upload_image", method="post", enctype="multipart/form-data")
+        input(type="file", name="displayImage")
+        div(class="recaptcha")
+            div(class="message-info")
+                 != recaptcha_upload
+        button upload!

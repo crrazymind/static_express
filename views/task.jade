@@ -1,0 +1,62 @@
+block javascripts
+	script(src='/javascripts/underscore.js')
+	script(src='/javascripts/backbone.js')
+	//script(src='/javascripts/backbone-relational.js')
+	script(src='/javascripts/jquery-1.7.min.js')
+	script(src='/javascripts/task.js')
+ 
+
+section(class="main-content")
+	div(class="taskpanel")
+	div#todoapp
+		header
+			input(type="text",id="new-todo",placeholder="What needs to be done?")
+			input(type="checkbox",id="toggle-all")
+		div#main
+		ul#todo-list
+		footer
+            
+|  <script type="text/template" id="item-template">
+|    <div class="view">
+|      <input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
+|      <label><%= title %></label>
+|      <a class="destroy"></a>
+|    </div>
+|    <input class="edit" type="text" value="<%= title %>" />
+|  </script>
+
+|  <script type="text/template" id="stats-template">
+|    <% if (done) { %>
+|    <% } %>
+|    <div class="todo-count"><b><%= remaining %></b> <%= remaining == 1 ? 'item' : 'items' %> left</div>
+|  </script>
+
+|	<script type="text/template" id="task_header_template">
+|		<div class="view header-row">
+|			<div class="item title">title</div>
+|			<div class="item duration">time</div>
+|    		<div class="item cost">cost</div>
+|    		<div class="item eta">eta</div>
+|    		<div class="item link">link</div>
+|    	</div>
+|	</script>
+|	<script type="text/template" id="submit-btm-tpl">
+|		<div class="view navigation-bar">
+|			<button type="button" class="submit-task btn btn-primary">go away</button>
+|			<button type="button" class="add-one">+</button>
+|    	</div>
+|	</script>
+|	<script type="text/template" id="my_template">
+|		<div class="view">
+|			<input class="_id" type="hidden" value="<%= _id.$oid %>" />
+|			<div class="item title"><div class="ttl-holder"><%= title %></div></div>
+|			<div class="item duration"><%= duration %></div>
+|    		<div class="item cost"><%= cost %></div>
+|    		<div class="item eta"><%= eta %></div>
+|    		<div class="item link"><a href="<%= link %>"><%= link %></a></div>
+|			<div class="item buttons">
+|				<button type="button" class="remove btn">remove</button>
+|				<button type="button" class="save btn">save</button>
+|			</div>
+|    	</div>
+|	</script>

@@ -1,0 +1,15 @@
+section(class="main-content")
+    form(action="/mail_sent", method="post")
+        .box
+            label Enter your name
+            input(type="text", value="enter your name",name="name")
+        .box
+            label Enter your email text
+            textarea(name="mailbody", cols="100",rows="10")
+        p 
+            | <span style="color:#F00;">*</span>all field are required
+
+        div(class="recaptcha")
+            div(class="message-info")
+                 != recaptcha_upload
+        button Send mail
